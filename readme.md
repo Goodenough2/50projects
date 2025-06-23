@@ -45,9 +45,20 @@ text-align：center; 控制块级元素内的**文本内容**或 **行内元素*
 
 ### 0622 notes-app
 
-- `localStorage`是浏览器里的一种存储机制，它以键值对的形式将数据永久存储在浏览器中，除非手动删除。
-- 因为 `localStorage`中存储的只能是字符串，所以在存储对象时，通常会先用 `JSON.stringify()`将对象转换为字符串。
+`localStorage`是浏览器里的一种存储机制，它以键值对的形式将数据永久存储在浏览器中，除非手动删除。
 
-  `marked(value)` 是在调用 **Marked.js** 库，它的作用是将 **Markdown 格式的文本**转换为 **HTML 代码** 。
+因为 `localStorage`中存储的只能是字符串，所以在存储对象时，通常会先用 `JSON.stringify()`将对象转换为字符串。
 
-- `outline: none;` 是 CSS 中用于移除元素获得焦点时默认显示的轮廓线（outline）的属性
+`marked(value)` 是在调用 **Marked.js** 库，它的作用是将 **Markdown 格式的文本**转换为 **HTML 代码** 。
+
+`outline: none;` 是 CSS 中用于移除元素获得焦点时默认显示的轮廓线（outline）的属性
+
+### 0623 good cheap fast
+
+- `id="cheap"`：为元素分配唯一标识符，用于与 `<label>`关联。
+- `class="toggle"`：用于 CSS 选择器匹配，添加自定义样式。
+
+**关联机制**
+
+- `for="cheap"`：将标签与 `id="cheap"`的输入框绑定。
+  → **点击标签时，会自动触发关联复选框的状态切换** 。
