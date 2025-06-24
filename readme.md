@@ -60,5 +60,22 @@ text-align：center; 控制块级元素内的**文本内容**或 **行内元素*
 
 **关联机制**
 
-- `for="cheap"`：将标签与 `id="cheap"`的输入框绑定。
-  → **点击标签时，会自动触发关联复选框的状态切换** 。
+`for="cheap"`：将标签与 `id="cheap"`的输入框绑定。
+→ **点击标签时，会自动触发关联复选框的状态切换** 。
+
+### 0624 drag-n-drop
+
+JavaScript 是通过 **DOM API** 来操作 HTML 元素的，所以不需要在 HTML 中直接添加 `on` 事件属性（例如 `<div ondragstart="..." />`）。
+
+- **事件绑定** ：通过 `addEventListener`，JavaScript 代码为 `body` 和 `.empty` 元素绑定了事件监听器，响应用户的拖拽操作。
+- **事件冒泡** ：拖拽相关的事件（如 `dragstart` 和 `dragend`）被绑定到 `body` 上，借助事件冒泡机制触发这些事件。
+- **HTML 中没有事件处理器** ：HTML 中没有显式的 `on` 事件处理器，所有的事件绑定和处理都是通过 JavaScript 完成的。
+- **`dragstart`** ：当拖动 `fill` 元素时，会触发 `dragstart` 事件。在 `dragStart` 函数中，如果目标元素包含 `fill` 类（即我们拖拽的元素），它会添加 `hold` 类并使其不可见，准备开始拖拽。
+- **`dragend`** ：拖拽结束后，`dragEnd` 会被触发，这时会恢复元素的类名为 `fill`，表示拖拽结束。
+- **`dragover`, `dragenter`, `dragleave`, `drop`** ：这些事件是在 `.empty` 元素上触发的，目的是控制拖拽过程中的行为：
+- `dragover`：允许元素被拖拽到该区域。
+- `dragenter`：当拖拽元素进入目标区域时，修改目标区域的样式。
+- `dragleave`：当拖拽元素离开目标区域时，恢复目标区域样式。
+- `drop`：当元素被拖放到目标区域时，将 `fill` 元素插入到目标区域。
+
+  `setTimeout` 的作用是确保 `invisible` 类的添加在浏览器的下一次渲染中生效，通常用于实现动画或延迟效果。
