@@ -79,3 +79,13 @@ JavaScript 是通过 **DOM API** 来操作 HTML 元素的，所以不需要在 H
 - `drop`：当元素被拖放到目标区域时，将 `fill` 元素插入到目标区域。
 
   `setTimeout` 的作用是确保 `invisible` 类的添加在浏览器的下一次渲染中生效，通常用于实现动画或延迟效果。
+
+  ## 0628 hoverboard
+
+  element.style.boxShadow = ` ``0 0 3px ${color}, 0 0 10px ${color}` `;
+
+使用了 ES6 的模板字符串（template literals）来动态设置元素的阴影效果，允许多个阴影叠加，创建更复杂的视觉效果。
+
+1. 第一层是模糊半径为 3px 的基础阴影
+2. 第二层是模糊半径为 10px 的扩散阴影
+3. 两层阴影都使用同一个变量 `color` 作为颜色值
